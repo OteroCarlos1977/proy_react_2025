@@ -4,11 +4,13 @@ import React from "react";
 function Button({ texto, style, onClick, Icono, tooltip }) {
     return (
         <button 
-            style={style} 
+            style={style}  
             onClick={onClick} 
             title={tooltip}
+            
         >
-            {Icono && <Icono style={{ marginRight: "8px" }} />}
+            
+            {Icono && <Icono style={{ marginRight: "8px" }} />} 
             {texto}
         </button>
     );

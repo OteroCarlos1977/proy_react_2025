@@ -1,21 +1,76 @@
 #root {
-  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Asegura que el root ocupe toda la altura */
+}
+
+Header {
+  background-color: #f0f0f0; /* Un gris claro y suave */
+  color: #333; /* Texto oscuro legible */
+  padding: 0.5rem 2rem; /* Reduje un poco el padding vertical */
+  text-align: left; /* Alinea el contenido a la izquierda, típico para navbars */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  height: 10vh; /* El header ocupa el 10% de la altura de la pantalla */
+  display: flex;
+  align-items: center; /* Centra verticalmente el contenido de la navbar */
+}
+
+Main {
+  width: 80%; /* Ocupa el espacio restante entre Header y Footer */
+  padding: 20px; /* Un padding más uniforme */
+  display: flex;
+  flex-direction: column; /* Para organizar las Cards en vertical inicialmente */
+  align-items: center; /* Centra los elementos horizontalmente */
+  justify-content: center; /* Centra los elementos verticalmente por defecto */
+  margin-top: 10vh; /* Ajuste para evitar el solapamiento con el Header */
+  margin-bottom: 10vh; /* Ajuste para evitar el solapamiento con el Footer */
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Crea una grilla responsiva */
+  gap: 1rem; /* Espacio entre las Cards */
+  width: 100%; /* Ocupa todo el ancho disponible del Main */
+  max-width: 1200px; /* Opcional: un ancho máximo para la grilla */
+}
+
+Footer {
+  width: 100%;
+  background-color: #ddd; /* Otro tono de gris claro */
+  color: #555; /* Texto ligeramente más claro */
+  padding: 0.5rem 2rem; /* Reduje el padding vertical */
   text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  height: 7vh; /* El footer ocupa el 10% de la altura de la pantalla */
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra verticalmente el contenido */
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
+  height: 3em; /* Ajusté aún más el tamaño del logo */
+  padding: 0.2em; /* Reduje el padding del logo */
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 0.5em #bbb); /* Un drop-shadow más sutil */
 }
+
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 0.5em #9cd8f0); /* Un drop-shadow sutil para React */
 }
 
 @keyframes logo-spin {
@@ -34,9 +89,42 @@
 }
 
 .card {
-  padding: 2em;
+  padding: 1em;
+  border: 1px solid #ebd7d7;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  
+  font-size: 0.85rem; /* Reducir tamaño del texto general */
+  max-width: 280px;    /* Achica el ancho máximo */
+  transition: box-shadow 0.3s ease;
+  
 }
 
 .read-the-docs {
-  color: #888;
+  color: #777; /* Un color grisáceo para el texto secundario */
+}
+
+/* Estilos para el botón (movidos desde index.css) */
+Button {
+  max-width: 150px;
+  border-radius: 8px;
+  border: 1px solid #ccc; /* Un borde grisáceo */
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #eee; /* Un fondo gris claro */
+  color: #333; /* Texto oscuro */
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+Button:hover {
+  border-color: #aaa;
+  background-color: #ddd;
+}
+
+Button:focus,
+Button:focus-visible {
+  outline: 2px solid #aaa; /* Un outline más sutil */
 }
